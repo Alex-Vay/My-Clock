@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HelloWorld</string>
+    <string name="title_home">Alarms</string>
+    <string name="title_timer">Timer</string>
+    <string name="title_stopWatch">StopWatch</string>
+    <string name="title_worldTime">WorldTime</string>
+</resources>
