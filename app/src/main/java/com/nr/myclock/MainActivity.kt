@@ -1,4 +1,4 @@
-package com.example.helloworld
+package com.nr.myclock
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,7 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.helloworld.databinding.ActivityMainBinding
+import com.nr.myclock.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,11 +24,11 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.navigation_home,
-            R.id.navigation_timer,
-            R.id.navigation_stopWatch,
-            R.id.navigation_worldTime))
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_home, R.id.navigation_timer, R.id.navigation_stopWatch, R.id.navigation_worldTime
+            )
+        )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }

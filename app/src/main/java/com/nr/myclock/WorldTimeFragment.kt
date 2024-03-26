@@ -1,4 +1,4 @@
-package com.example.helloworld
+package com.nr.myclock
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle

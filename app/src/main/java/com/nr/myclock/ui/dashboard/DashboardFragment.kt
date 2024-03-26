@@ -1,4 +1,4 @@
-package com.example.helloworld.ui.dashboard
+package com.nr.myclock.ui.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.helloworld.databinding.FragmentDashboardBinding
+import com.nr.myclock.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
 
@@ -18,12 +18,12 @@ class DashboardFragment : Fragment() {
     private val binding get() = _binding!!
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         val dashboardViewModel =
-                ViewModelProvider(this).get(DashboardViewModel::class.java)
+            ViewModelProvider(this).get(DashboardViewModel::class.java)
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root

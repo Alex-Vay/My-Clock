@@ -1,4 +1,4 @@
-package com.example.helloworld
+package com.nr.myclock
 
 import org.junit.Test
 

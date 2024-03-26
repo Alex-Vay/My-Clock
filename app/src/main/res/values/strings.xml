@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HelloWorld</string>
+    <string name="app_name">MyClock</string>
     <string name="title_home">Alarms</string>
     <string name="title_timer">Timer</string>
     <string name="title_stopWatch">StopWatch</string>
