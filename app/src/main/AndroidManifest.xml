@@ -16,6 +16,9 @@
             android:name=".games.quiz.QuizActivity"
             android:exported="true" />
         <activity
+            android:name=".games.schulteTable.SchulteActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name">
