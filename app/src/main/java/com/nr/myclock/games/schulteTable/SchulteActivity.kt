@@ -17,12 +17,20 @@ class SchulteActivity : AppCompatActivity() {
     private var nextNum = 1
     private var end = 25
     private var level = 1
+    private val sleepTime : Long = 2500
+    private val level1Start = 1
+    private val level1End = 9
+    private val level2Start = 1
+    private val level2End = 16
+    private val level3Start = Random.nextInt(1, 100 - 25)
+    private val level3End = level3Start + 24
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         level = getSharedPreferences("clock_settings", Context.MODE_PRIVATE).getInt("schulteLevel", 1)
         if (level == 1) {
-            nextNum = 1; end = 9
+            nextNum = level1Start; end = level1End
             val binding = Schulte9ActivityBinding.inflate(layoutInflater)
             setContentView(binding.root)
             val cells = listOf(binding.viewS01, binding.viewS02, binding.viewS03,
@@ -31,7 +39,7 @@ class SchulteActivity : AppCompatActivity() {
             createTable(cells)
         }
         else if (level == 2) {
-            nextNum = 1; end = 16
+            nextNum = level2Start; end = level2End
             val binding = Schulte16ActivityBinding.inflate(layoutInflater)
             setContentView(binding.root)
             val cells = listOf(binding.viewS01, binding.viewS02, binding.viewS03, binding.viewS04,
@@ -41,7 +49,7 @@ class SchulteActivity : AppCompatActivity() {
             createTable(cells)
         }
         else {
-            nextNum = Random.nextInt(1, 100 - 25); end = nextNum + 24
+            nextNum = level3Start; end = level3End
             val binding = Schulte25ActivityBinding.inflate(layoutInflater)
             setContentView(binding.root)
             val cells = listOf(binding.viewS01, binding.viewS02, binding.viewS03, binding.viewS04, binding.viewS05,
@@ -64,7 +72,7 @@ class SchulteActivity : AppCompatActivity() {
                 if (nextNum == numbers[i]) {
                     nextNum++
                     if (nextNum == end + 1) {
-                        Thread.sleep(2500)
+                        Thread.sleep(sleepTime)
                         val m = Intent(this, MainActivity::class.java)
                         startActivity(m)
                     }
