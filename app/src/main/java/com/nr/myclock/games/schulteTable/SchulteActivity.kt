@@ -3,11 +3,13 @@ package com.nr.myclock.games.schulteTable
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TableLayout
-import android.widget.TableRow
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.nr.myclock.MainActivity
+import com.nr.myclock.R
+import com.nr.myclock.databinding.Schulte16ActivityBinding
+import com.nr.myclock.databinding.Schulte25ActivityBinding
+import com.nr.myclock.databinding.Schulte9ActivityBinding
 import kotlin.random.Random
 
 
@@ -19,59 +21,58 @@ class SchulteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         level = getSharedPreferences("clock_settings", Context.MODE_PRIVATE).getInt("schulteLevel", 1)
-        setContentView(createTable())
+        if (level == 1) {
+            nextNum = 1; end = 9
+            val binding = Schulte9ActivityBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+            val cells = listOf(binding.viewS01, binding.viewS02, binding.viewS03,
+                binding.viewS04, binding.viewS05, binding.viewS06,
+                binding.viewS07, binding.viewS08, binding.viewS09)
+            createTable(cells)
+        }
+        else if (level == 2) {
+            nextNum = 1; end = 16
+            val binding = Schulte16ActivityBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+            val cells = listOf(binding.viewS01, binding.viewS02, binding.viewS03, binding.viewS04,
+                binding.viewS05, binding.viewS06, binding.viewS07, binding.viewS08,
+                binding.viewS09, binding.viewS10, binding.viewS11, binding.viewS12,
+                binding.viewS13, binding.viewS14, binding.viewS15, binding.viewS16)
+            createTable(cells)
+        }
+        else {
+            nextNum = Random.nextInt(1, 100 - 25); end = nextNum + 24
+            val binding = Schulte25ActivityBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+            val cells = listOf(binding.viewS01, binding.viewS02, binding.viewS03, binding.viewS04, binding.viewS05,
+                binding.viewS06, binding.viewS07, binding.viewS08, binding.viewS09, binding.viewS10,
+                binding.viewS11, binding.viewS12, binding.viewS13, binding.viewS14, binding.viewS15,
+                binding.viewS16, binding.viewS17, binding.viewS18, binding.viewS19, binding.viewS20,
+                binding.viewS21, binding.viewS22, binding.viewS23, binding.viewS24, binding.viewS25)
+            createTable(cells)
+        }
     }
 
-    private fun createButton(num : String): Button {
-        val button = Button(this)
-        button.text = num
-        button.id = num.toInt()
-        return button
-    }
-
-    private fun setListener(button : Button) {
-        button.setOnClickListener {
-            if (button.text == nextNum.toString()) {
-                nextNum++
-                if (nextNum == end + 1) {
-                    Thread.sleep(2500)
-                    val m = Intent(this, MainActivity::class.java)
-                    startActivity(m)
+    private fun createTable(cells : List<TextView>) {
+        val numbers = (nextNum..end).shuffled()
+        val a = cells.size
+        val currentNum : TextView = findViewById(R.id.currentNumberToFind)
+        currentNum.text = nextNum.toString()
+        for (i in 0 until a) {
+            cells[i].text = numbers[i].toString()
+            cells[i].setOnClickListener {
+                if (nextNum == numbers[i]) {
+                    nextNum++
+                    if (nextNum == end + 1) {
+                        Thread.sleep(2500)
+                        val m = Intent(this, MainActivity::class.java)
+                        startActivity(m)
+                    }
+                    else {
+                        currentNum.text = nextNum.toString()
+                    }
                 }
             }
         }
-    }
-
-    private fun createTable(): TableLayout {
-        var sqrt = 3
-        if (level == 1) {
-            nextNum = 1; end = 9; sqrt = 3
-        }
-        else if (level == 2) {
-            nextNum = 1; end = 16; sqrt = 4
-        }
-        else if (level == 3) {
-            nextNum = Random.nextInt(1, 100 - 25); end = nextNum + 24; sqrt = 5
-        }
-        val table = TableLayout(this); sqrt -= 1
-        val numbers = (nextNum..end).shuffled()
-        for (i in 0 until sqrt) {
-            val tableRow = TableRow(this)
-            val params = TableLayout.LayoutParams(
-                TableLayout.LayoutParams.MATCH_PARENT,
-                TableLayout.LayoutParams.WRAP_CONTENT
-            )
-            tableRow.layoutParams = params
-            for (j in 0 until sqrt) {
-                val button = createButton((numbers[i * 5 + j]).toString())
-                setListener(button)
-                params.setMargins(8, 8, 8, 8)
-//                button.layoutParams = params
-//                button.layoutParams.width = 90
-                tableRow.addView(button)
-            }
-            table.addView(tableRow)
-        }
-        return table
     }
 }
