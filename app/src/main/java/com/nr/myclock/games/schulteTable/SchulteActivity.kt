@@ -2,7 +2,10 @@ package com.nr.myclock.games.schulteTable
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+
 import android.os.Bundle
+import android.os.Handler
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.nr.myclock.MainActivity
@@ -17,7 +20,7 @@ class SchulteActivity : AppCompatActivity() {
     private var nextNum = 1
     private var end = 25
     private var level = 1
-    private val sleepTime : Long = 2500
+    private val sleepTime : Long = 3500
     private val level1Start = 1
     private val level1End = 9
     private val level2Start = 1
@@ -28,7 +31,7 @@ class SchulteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        level = getSharedPreferences("clock_settings", Context.MODE_PRIVATE).getInt("schulteLevel", 1)
+        level = getSharedPreferences("clock_settings", MODE_PRIVATE).getInt("schulteLevel", 1)
         if (level == 1) {
             nextNum = level1Start; end = level1End
             val binding = Schulte9ActivityBinding.inflate(layoutInflater)
@@ -70,11 +73,14 @@ class SchulteActivity : AppCompatActivity() {
             cells[i].text = numbers[i].toString()
             cells[i].setOnClickListener {
                 if (nextNum == numbers[i]) {
+                    cells[i].setBackgroundColor(Color.parseColor("#7FFFD4"))
                     nextNum++
                     if (nextNum == end + 1) {
-                        Thread.sleep(sleepTime)
-                        val m = Intent(this, MainActivity::class.java)
-                        startActivity(m)
+                        currentNum.text = "Поздравляем, вы закончили! Теперь вы можете отключить будильник!"
+                        Handler().postDelayed({
+                            val m = Intent(this, MainActivity::class.java)
+                            startActivity(m)
+                        }, sleepTime)
                     }
                     else {
                         currentNum.text = nextNum.toString()
