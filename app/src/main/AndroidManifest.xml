@@ -19,6 +19,9 @@
             android:name=".games.riddle.RiddlesActivity"
             android:exported="true" />
         <activity
+            android:name=".games.math.MathActivity"
+            android:exported="true" />
+        <activity
             android:name=".games.schulteTable.SchulteActivity"
             android:exported="true" />
         <activity

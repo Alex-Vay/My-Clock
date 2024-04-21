@@ -37,7 +37,7 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun updateQuestion() {
-        val randomNum = Random.nextInt(1, 2927)
+        val randomNum = Random.nextInt(1, 2927 + 1)
         val cursor = db.rawQuery("SELECT * FROM Questions WHERE id = $randomNum", null)
         if (cursor.moveToFirst()) {
             question = cursor.getString(1)

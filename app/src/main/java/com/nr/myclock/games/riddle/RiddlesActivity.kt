@@ -36,7 +36,7 @@ class RiddlesActivity : AppCompatActivity() {
     }
 
     private fun updateQuestion() {
-        val randomNum = Random.nextInt(1, 157)
+        val randomNum = Random.nextInt(1, 157 + 1)
         val cursor = db.rawQuery("SELECT * FROM Riddles WHERE id = $randomNum", null)
         if (cursor.moveToFirst()) {
             question = cursor.getString(1)
@@ -57,8 +57,6 @@ class RiddlesActivity : AppCompatActivity() {
                         val m = Intent(this, MainActivity::class.java)
                         startActivity(m)
                     }, sleepTime)
-                    val m = Intent(this, MainActivity::class.java)
-                    startActivity(m)
                 }
                 else {
                     var resText = "НЕПРАВИЛЬНО"
