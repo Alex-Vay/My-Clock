@@ -4,4 +4,10 @@
     <string name="title_timer">Timer</string>
     <string name="title_stopWatch">StopWatch</string>
     <string name="title_worldTime">WorldTime</string>
+
+    <string name="moves">"Moves: "</string>
+    <string name="scores">"Scores: "</string>
+    <string name="end_game">END GAME</string>
+    <string name="game_over">Game over :)</string>
+    <string name="next_time">Now you can turn off your clock</string>
 </resources>
