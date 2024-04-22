@@ -1,8 +1,6 @@
 package com.nr.myclock.games.game128
 
 class Swipes(private val viewModel: GameViewModel) {
-
-    // собрать все элементы внизу поля
     fun swipeToDown(matrix: MutableList<Int?>): MutableList<Int?> {
         val tempArr = mutableListOf<Int?>()
 

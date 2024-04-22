@@ -47,6 +47,9 @@ import com.nr.myclock.games.game128.ui.theme.GameColors
 import kotlin.math.abs
 
 class Game128Activity : ComponentActivity() {
+    private val unrealTime : Long = 240000
+    private val sleepTime : Long = 1000
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val level = getSharedPreferences("clock_settings", MODE_PRIVATE).getInt("game128settings", 1)
@@ -68,7 +71,6 @@ class Game128Activity : ComponentActivity() {
         }
         setContent {
             Game2048Theme {
-                // A surface container using the "background" color from the theme
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     drawerBackgroundColor = MaterialTheme.colors.background
@@ -117,7 +119,7 @@ class Game128Activity : ComponentActivity() {
                         onClick = {
                             Handler().postDelayed({
                                 changeActivity()
-                            }, 1_000)
+                            }, sleepTime)
                         }
                     ) {
                         Text(
@@ -190,22 +192,11 @@ class Game128Activity : ComponentActivity() {
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-//        Button(
-//            onClick = {
-//                viewModel.undoMove()
-//                Log.d("DDDDDD", "undo ${viewModel.game.value.matrix.asMatrix()}")
-//            },
-//        ) {
-//            Icon(
-//                imageVector = ImageVector.vectorResource(id = R.drawable.baseline_undo_24),
-//                contentDescription = "Undo"
-//            )
-//        }
             Button(
                 onClick = {
                     Handler().postDelayed({
                         changeActivity()
-                    }, 300_000)
+                    }, unrealTime)
                 }
             ) {
                 Icon(

@@ -1,13 +1,10 @@
 package com.nr.myclock.games.game128
 
-import android.content.Context
-import android.content.Intent
 import android.os.Handler
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.nr.myclock.MainActivity
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -19,11 +16,11 @@ class GameViewModel : ViewModel() {
     private var _game = MutableStateFlow(Game())
     val game: StateFlow<Game> = _game.asStateFlow()
 
-    private val lastMoveTilePosotions = MutableStateFlow(Game()) // предыдущий ход для возврата
+    private val lastMoveTilePosotions = MutableStateFlow(Game())
     private var canUseUndo: Boolean = true
 
-    private var moveScore = 0 // число очков за ход
-    private var previousMoveScore = 0 //число очков для отмены хода
+    private var moveScore = 0
+    private var previousMoveScore = 0
 
     private var _gameOver = MutableStateFlow(false)
     val gameOver: StateFlow<Boolean> = _gameOver
@@ -40,7 +37,7 @@ class GameViewModel : ViewModel() {
     }
 
     fun setMoveScore(a: Int) {
-        moveScore += a // если за ход несколько плиток суммируется, то нужна их сумма.
+        moveScore += a
     }
 
     fun makeSwipe(direction: Directions): Game {
@@ -151,21 +148,6 @@ class GameViewModel : ViewModel() {
         return if (a < 85) 2 else 4
     }
 
-//    fun undoMove(): Game {
-//        if (canUseUndo) {
-//            _game.update {
-//                it.copy(
-//                    matrix = lastMoveTilePosotions.value.matrix,
-//                    score = lastMoveTilePosotions.value.score,
-//                    move = lastMoveTilePosotions.value.move
-//                )
-//            }
-//            Log.d("moves", "undoMove: ${lastMoveTilePosotions.value.matrix.array}")
-//            canUseUndo = false
-//        }
-//        return _game.value
-//    }
-
     private fun canContinue(array: MutableList<Int?>) {
         var isHorizontalSum = false
         var isVerticalSum = false
@@ -177,8 +159,8 @@ class GameViewModel : ViewModel() {
         if (!hasNulls) {
             // проверка по горизонталм
             for (line in 0 until array.size / ROWCOUNT) {
-                val startIndex = line * ROWCOUNT // начало линии
-                val endIndex = startIndex + ROWCOUNT - 1 // конец линии
+                val startIndex = line * ROWCOUNT
+                val endIndex = startIndex + ROWCOUNT - 1
 
                 for (digit1 in startIndex until endIndex) {
                     val digit2 = digit1 + 1
@@ -201,11 +183,5 @@ class GameViewModel : ViewModel() {
                 true
             }
         }
-    }
-
-    fun finishGame() {
-        Handler().postDelayed({
-            _changeActivityEvent.value = Unit
-        }, sleepTime)
     }
 }

@@ -4,12 +4,6 @@ var ROWCOUNT = -1
 
 data class Matrix(
     var array: MutableList<Int?> = arrayOfNulls<Int?>(ROWCOUNT * ROWCOUNT).toMutableList()
-//    var array: MutableList<Int?> = arrayOf(
-//        2,4,2,8,
-//        2,2,4,4,
-//        8,8,32,32,
-//        2,null, null, 2
-//    ).toMutableList()
 ) {
     fun matrixCopy(newArray: MutableList<Int?>): Matrix = Matrix().copy(
         array = newArray.toMutableList()
