@@ -19,8 +19,8 @@ class QuizActivity : AppCompatActivity() {
     private lateinit var correctAns : String
     private lateinit var otherAns : List<String>
     private lateinit var binding : QuestsActivityBinding
-    private val sleepTimeCorrectAns : Long = 2000
-    private val sleepTimeWrongAns : Long = 5000
+    private val sleepTimeCorrectAns = 2000L
+    private val sleepTimeWrongAns = 5000L
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

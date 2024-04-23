@@ -47,12 +47,12 @@ import com.nr.myclock.games.game128.ui.theme.GameColors
 import kotlin.math.abs
 
 class Game128Activity : ComponentActivity() {
-    private val unrealTime : Long = 240000
-    private val sleepTime : Long = 1000
+    private val unrealTime = 240000L
+    private val sleepTime = 1000L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val level = getSharedPreferences("clock_settings", MODE_PRIVATE).getInt("game128settings", 1)
+        val level = getSharedPreferences("clock_settings", MODE_PRIVATE).getInt("game128level", 1)
         if (level == 1) {
             ROWCOUNT = 4
             GAMEENDPOINTS = 128

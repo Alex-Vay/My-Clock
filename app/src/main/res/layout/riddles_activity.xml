@@ -7,15 +7,15 @@
 
     <TextView
         android:id="@+id/quest"
-        android:layout_width="382dp"
-        android:layout_height="205dp"
+        android:layout_width="348dp"
+        android:layout_height="207dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="0.746"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19" />
+        app:layout_constraintVertical_bias="0.194" />
 
     <EditText
         android:id="@+id/wtireAns"
@@ -29,7 +29,7 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quest"
-        app:layout_constraintVertical_bias="0.106" />
+        app:layout_constraintVertical_bias="0.192" />
 
     <TextView
         android:id="@+id/ansRes"

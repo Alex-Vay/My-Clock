@@ -22,6 +22,12 @@
             android:name=".games.riddle.RiddlesActivity"
             android:exported="true" />
         <activity
+            android:name=".games.memory.MemoryGameActivity"
+            android:exported="true" />
+        <activity
+            android:name=".games.memory.FinishActivity"
+            android:exported="true" />
+        <activity
             android:name=".games.math.MathActivity"
             android:exported="true" />
         <activity

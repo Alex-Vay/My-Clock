@@ -24,13 +24,13 @@ class MathActivity : AppCompatActivity() {
     private val operations = mapOf(1 to "+", 2 to "-", 3 to "/", 4 to "*", 5 to "%", 6 to "^")
     private lateinit var mathExp : String
     private lateinit var binding : MathActivityBinding
-    private val sleepTime : Long = 2500
+    private val sleepTime = 2500L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = MathActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val level = getSharedPreferences("clock_settings", MODE_PRIVATE).getInt("schulteLevel", 3)
+        val level = getSharedPreferences("clock_settings", MODE_PRIVATE).getInt("mathLevel", 3)
         if (level == 1) {
             numbersCount = Random.nextInt(4, 10 + 1)
             maxNumber = 10

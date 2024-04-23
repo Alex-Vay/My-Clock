@@ -19,7 +19,7 @@ class RiddlesActivity : AppCompatActivity() {
     private lateinit var question : String
     private lateinit var correctAns : String
     private lateinit var binding : RiddlesActivityBinding
-    private val sleepTime : Long = 2000
+    private val sleepTime = 2000L
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
