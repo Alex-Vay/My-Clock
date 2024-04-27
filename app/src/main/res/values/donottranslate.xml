@@ -1,0 +1,4 @@
+<resources>
+    <string name="package_name" translatable="false">myclock</string>
+    <string name="app_name" translatable="false">MyClock</string>
+</resources>
