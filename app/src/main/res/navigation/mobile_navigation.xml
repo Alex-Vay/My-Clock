@@ -15,7 +15,7 @@
         android:id="@+id/navigation_timer"
         android:name="com.nr.myclock.ui.timer.TimerFragment"
         android:label="@string/title_timer"
-        tools:layout="@layout/fragment_timer" />
+        tools:layout="@layout/fragment_timer1" />
 
     <fragment
         android:id="@+id/navigation_stopWatch"
