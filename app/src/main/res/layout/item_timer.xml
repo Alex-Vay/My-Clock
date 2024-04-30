@@ -7,8 +7,7 @@
     android:layout_height="wrap_content"
     android:background="?selectableItemBackground"
     android:clickable="true"
-    android:focusable="true"
-    android:foreground="@drawable/selector">
+    android:focusable="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

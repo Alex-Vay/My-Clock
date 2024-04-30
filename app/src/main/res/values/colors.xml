@@ -7,4 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="hint_black">#66000000</color>
+    <color name="color_primary">#FF106D1F</color>
+    <color name="pressed_item_foreground">#08000000</color>
 </resources>

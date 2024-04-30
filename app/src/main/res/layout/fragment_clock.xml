@@ -47,7 +47,7 @@
             android:textSize="@dimen/big_text_size"
             tools:text="Thu, 8:00" />
 
-        <org.fossify.commons.views.MyRecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/time_zones_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -57,8 +57,8 @@
             android:overScrollMode="ifContentScrolls"
             android:paddingBottom="@dimen/fab_list_bottom_padding"
             android:scrollbars="none"
-            android:visibility="gone"
-            app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager" />
+            android:visibility="gone" />
+<!--            app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager" />-->
 
     </RelativeLayout>
 
@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/activity_margin"
-        android:src="@drawable/ic_plus_vector" />
+        android:layout_margin="@dimen/activity_margin" />
+<!--        android:src="@drawable/ic_plus_vector" />-->
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

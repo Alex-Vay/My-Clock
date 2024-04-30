@@ -9,13 +9,14 @@
 
     <com.shawnlin.numberpicker.NumberPicker
         android:id="@+id/my_time_picker_hours"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="77dp"
+        android:layout_height="172dp"
         app:np_fadingEdgeEnabled="false"
         app:np_formatter="%02d"
         app:np_max="23"
         app:np_min="0"
         app:np_selectedTextSize="@dimen/big_text_size"
+        app:np_textColor="@color/black"
         app:np_textSize="@dimen/big_text_size" />
 
     <TextView
@@ -29,8 +30,8 @@
 
     <com.shawnlin.numberpicker.NumberPicker
         android:id="@+id/my_time_picker_minutes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="78dp"
+        android:layout_height="159dp"
         app:np_fadingEdgeEnabled="false"
         app:np_formatter="%02d"
         app:np_max="59"
@@ -48,8 +49,8 @@
 
     <com.shawnlin.numberpicker.NumberPicker
         android:id="@+id/my_time_picker_seconds"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="65dp"
+        android:layout_height="168dp"
         app:np_fadingEdgeEnabled="false"
         app:np_formatter="%02d"
         app:np_max="59"
