@@ -27,6 +27,8 @@
     <dimen name="reminder_activity_title_size">32sp</dimen>
     <dimen name="reminder_activity_text_size">26sp</dimen>
     <dimen name="big_margin">24dp</dimen>
+    <dimen name="game_activity_number_to_find">26sp</dimen>
+    <dimen name="schulte_margin">2dip</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

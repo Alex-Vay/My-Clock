@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/color_aquamarine"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,13 +10,16 @@
         android:id="@+id/quest"
         android:layout_width="348dp"
         android:layout_height="207dp"
+        android:gravity="center"
         android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.746"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.194" />
+        app:layout_constraintVertical_bias="0.198" />
 
     <EditText
         android:id="@+id/wtireAns"
@@ -24,6 +28,10 @@
         android:ems="10"
         android:hint="Введите ответ"
         android:inputType="text"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:background="@drawable/riddles_border"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
@@ -35,7 +43,11 @@
         android:id="@+id/ansRes"
         android:layout_width="299dp"
         android:layout_height="73dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         android:text="Здесь будет укано правильно ли вы ответили на вопрос"
+        android:gravity="center"
+        android:background="@drawable/riddles_border"
         app:layout_constraintBottom_toTopOf="@+id/quest"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

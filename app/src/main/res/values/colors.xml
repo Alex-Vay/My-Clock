@@ -10,4 +10,8 @@
     <color name="hint_black">#66000000</color>
     <color name="color_primary">#FF106D1F</color>
     <color name="pressed_item_foreground">#08000000</color>
+    <color name="soft_yellow_pink">#FFB28B</color>
+    <color name="color_aquamarine">#B1E7E7</color>
+    <color name="antique_white">#FAEBD7</color>
+    
 </resources>
