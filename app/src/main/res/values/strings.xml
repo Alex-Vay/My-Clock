@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MyClock</string>
     <string name="title_home">Alarms</string>
@@ -56,6 +57,11 @@
     <string name="title">Title</string>
     <string name="delete">Delete</string>
     <string name="sort_by">Sort by</string>
+    <string name="schulteActivityNumberToFind">gameActivityNumberToFind</string>
+    <string name="riddles_activity">Здесь будет укано правильно ли вы ответили на вопрос</string>
+<!--    <string name="riddles_activity">Whether you answered the question correctly</string>-->
+    <string name="riddles_activity_enter">Введите ответ</string>
+<!--    <string name="riddles_activity_enter">enter the answer</string>-->
 
     <!-- Timer -->
     <string name="timers_notification_msg">Timers are running</string>

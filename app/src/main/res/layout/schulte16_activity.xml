@@ -25,6 +25,8 @@
                 android:layout_marginStart="@dimen/schulte_margin"
                 android:layout_marginTop="@dimen/schulte_margin"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:padding="3dip" />
 
@@ -35,6 +37,8 @@
                 android:layout_marginStart="@dimen/schulte_margin"
                 android:layout_marginTop="@dimen/schulte_margin"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:padding="3dip" />
 
@@ -45,6 +49,8 @@
                 android:layout_marginStart="@dimen/schulte_margin"
                 android:layout_marginTop="@dimen/schulte_margin"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:padding="3dip" />
 
@@ -56,6 +62,8 @@
                 android:layout_marginTop="@dimen/schulte_margin"
                 android:layout_marginEnd="@dimen/schulte_margin"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:padding="3dip" />
         </TableRow>
@@ -69,6 +77,8 @@
                 android:layout_marginStart="@dimen/schulte_margin"
                 android:layout_marginTop="@dimen/schulte_margin"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:padding="3dip" />
 
@@ -79,6 +89,8 @@
                 android:layout_marginStart="@dimen/schulte_margin"
                 android:layout_marginTop="@dimen/schulte_margin"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:padding="3dip" />
 
@@ -89,6 +101,8 @@
                 android:layout_marginStart="@dimen/schulte_margin"
                 android:layout_marginTop="@dimen/schulte_margin"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:padding="3dip" />
 
@@ -100,6 +114,8 @@
                 android:layout_marginTop="@dimen/schulte_margin"
                 android:layout_marginEnd="@dimen/schulte_margin"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:padding="3dip" />
         </TableRow>
@@ -113,6 +129,8 @@
                 android:layout_marginStart="@dimen/schulte_margin"
                 android:layout_marginTop="@dimen/schulte_margin"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:padding="3dip" />
 
@@ -123,6 +141,8 @@
                 android:layout_marginStart="@dimen/schulte_margin"
                 android:layout_marginTop="@dimen/schulte_margin"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:padding="3dip" />
 
@@ -133,6 +153,8 @@
                 android:layout_marginStart="@dimen/schulte_margin"
                 android:layout_marginTop="@dimen/schulte_margin"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:padding="3dip" />
 
@@ -144,6 +166,8 @@
                 android:layout_marginTop="@dimen/schulte_margin"
                 android:layout_marginEnd="@dimen/schulte_margin"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:padding="3dip" />
         </TableRow>
@@ -157,6 +181,8 @@
                 android:layout_marginStart="@dimen/schulte_margin"
                 android:layout_marginTop="@dimen/schulte_margin"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:padding="3dip" />
 
@@ -167,6 +193,8 @@
                 android:layout_marginStart="@dimen/schulte_margin"
                 android:layout_marginTop="@dimen/schulte_margin"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:padding="3dip" />
 
@@ -177,6 +205,8 @@
                 android:layout_marginStart="@dimen/schulte_margin"
                 android:layout_marginTop="@dimen/schulte_margin"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:padding="3dip" />
 
@@ -187,6 +217,8 @@
                 android:layout_marginStart="@dimen/schulte_margin"
                 android:layout_marginTop="@dimen/schulte_margin"
                 android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="30sp"
                 android:gravity="center"
                 android:padding="3dip" />
         </TableRow>
@@ -198,7 +230,7 @@
         android:layout_width="227sp"
         android:layout_height="56sp"
         android:gravity="center"
-        android:text="gameActivityNumberToFind"
+        android:text="@string/schulteActivityNumberToFind"
         android:background="@drawable/schulte_number_border"
         android:textColor="@color/black"
         android:textSize="@dimen/game_activity_number_to_find"

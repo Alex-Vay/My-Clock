@@ -44,11 +44,11 @@
     <TextView
         android:id="@+id/ansRes"
         android:layout_width="299dp"
-        android:layout_height="73dp"
+        android:layout_height="79dp"
         android:text="Здесь будет укано правильно ли вы ответили на вопрос"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textColor="@color/black"
-
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/quest"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
