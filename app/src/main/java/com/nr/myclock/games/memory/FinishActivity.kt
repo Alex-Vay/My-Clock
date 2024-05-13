@@ -1,6 +1,7 @@
 package com.nr.myclock.games.memory
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
@@ -36,14 +37,14 @@ class FinishActivity : AppCompatActivity() {
                     if (j != i) buttons[j].isEnabled = false
                 }
                 if (buttons[i].text == correctNum.toString()) {
-                    buttons[i].setBackgroundColor(Color.parseColor("#7FFFD4"))
+                    buttons[i].backgroundTintList = ColorStateList.valueOf(Color.parseColor("#7FFFD4"))
                     Handler().postDelayed({
                         val m = Intent(this, MainActivity::class.java)
                         startActivity(m)
                     }, sleepTime)
                 }
                 else {
-                    buttons[i].setBackgroundColor(Color.parseColor("#E52B50"))
+                    buttons[i].backgroundTintList = ColorStateList.valueOf(Color.parseColor("#E52B50"))
                     Handler().postDelayed({
                         val memory = Intent(this, MemoryGameActivity::class.java)
                         startActivity(memory)

@@ -28,7 +28,7 @@ class MemoryGameActivity : AppCompatActivity() {
             binding.numPlace7, binding.numPlace8, binding.numPlace9,
             binding.numPlace10, binding.numPlace11, binding.numPlace12,
             binding.numPlace13, binding.numPlace14, binding.numPlace15).shuffled()
-        val level = getSharedPreferences("clock_settings", MODE_PRIVATE).getInt("memoryLevel", 1)
+        val level = getSharedPreferences("clock_settings", MODE_PRIVATE).getInt("memoryLevel", 3)
         if (level == 1) {
             numCount = 5
             minNum = 1

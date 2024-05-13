@@ -1,6 +1,7 @@
 package com.nr.myclock.games.schulteTable
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
@@ -29,7 +30,7 @@ class SchulteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        level = getSharedPreferences("clock_settings", MODE_PRIVATE).getInt("schulteLevel", 1)
+        level = getSharedPreferences("clock_settings", MODE_PRIVATE).getInt("schulteLevel", 3)
         if (level == 1) {
             nextNum = level1Start; end = level1End
             val binding = Schulte9ActivityBinding.inflate(layoutInflater)
@@ -71,7 +72,7 @@ class SchulteActivity : AppCompatActivity() {
             cells[i].text = numbers[i].toString()
             cells[i].setOnClickListener {
                 if (nextNum == numbers[i]) {
-                    cells[i].setBackgroundColor(Color.parseColor("#7FFFD4"))
+                    cells[i].backgroundTintList = ColorStateList.valueOf(Color.parseColor("#7FFFD4"))
                     nextNum++
                     if (nextNum == end + 1) {
                         currentNum.text = "Поздравляем, вы закончили! Теперь вы можете отключить будильник!"

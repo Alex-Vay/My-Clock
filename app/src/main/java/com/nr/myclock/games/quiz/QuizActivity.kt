@@ -1,6 +1,7 @@
 package com.nr.myclock.games.quiz
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.database.sqlite.SQLiteDatabase
 import android.graphics.Color
 import android.os.Bundle
@@ -58,7 +59,7 @@ class QuizActivity : AppCompatActivity() {
                     if (j != i) buttons[j].isEnabled = false
                 }
                 if (buttons[i].text == correctAns) {
-                    buttons[i].setBackgroundColor(Color.parseColor("#7FFFD4"))
+                    buttons[i].backgroundTintList = ColorStateList.valueOf(Color.parseColor("#7FFFD4"))
                     ansRes.text = "ПРАВЛЬНЫЙ ОТВЕТ"
 //                    Toast.makeText(applicationContext, "ПРАВЛЬНЫЙ ОТВЕТ!", Toast.LENGTH_SHORT).show()
                     Handler().postDelayed({
@@ -67,7 +68,7 @@ class QuizActivity : AppCompatActivity() {
                         }, sleepTimeCorrectAns)
                 }
                 else {
-                    buttons[i].setBackgroundColor(Color.parseColor("#E52B50"))
+                    buttons[i].backgroundTintList = ColorStateList.valueOf(Color.parseColor("#E52B50"))
                     ansRes.text = "НЕПРАВЛЬНЫЙ ОТВЕТ"
                     Handler().postDelayed({
                         for (j in 0 until buttons.size){
