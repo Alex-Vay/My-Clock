@@ -6,11 +6,11 @@
     <string name="title_stopWatch">StopWatch</string>
     <string name="title_worldTime">WorldTime</string>
 
-    <string name="moves">"Moves: "</string>
-    <string name="scores">"Scores: "</string>
-    <string name="end_game">END GAME</string>
-    <string name="game_over">Game over :)</string>
-    <string name="next_time">Now you can turn off your clock</string>
+    <string name="moves">"Ходы: "</string>
+    <string name="scores">"Очки: "</string>
+    <string name="end_game">Закончить игру</string>
+    <string name="game_over">Вы выиграли)</string>
+    <string name="next_time">Теперь будильник будет отключен</string>
 
     <string name="app_launcher_name">Clock</string>
     <string name="time_zone">Time zone</string>

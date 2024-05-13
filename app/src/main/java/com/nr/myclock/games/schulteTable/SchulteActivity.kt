@@ -75,7 +75,7 @@ class SchulteActivity : AppCompatActivity() {
                     cells[i].backgroundTintList = ColorStateList.valueOf(Color.parseColor("#7FFFD4"))
                     nextNum++
                     if (nextNum == end + 1) {
-                        currentNum.text = "Поздравляем, вы закончили! Теперь вы можете отключить будильник!"
+                        currentNum.text = "Вы закончили)"
                         Handler().postDelayed({
                             val m = Intent(this, MainActivity::class.java)
                             startActivity(m)

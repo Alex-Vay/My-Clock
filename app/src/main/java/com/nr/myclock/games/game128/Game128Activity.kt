@@ -123,7 +123,7 @@ class Game128Activity : ComponentActivity() {
                         }
                     ) {
                         Text(
-                            text = "END GAME",
+                            text = "Выйти",
                             fontSize = 20.sp,
                             color = GameColors.Yellow
                         )
