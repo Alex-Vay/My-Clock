@@ -30,7 +30,7 @@ class MathActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = MathActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val level = getSharedPreferences("clock_settings", MODE_PRIVATE).getInt("mathLevel", 3)
+        val level = getSharedPreferences("clock_settings", MODE_PRIVATE).getInt("mathLevel", 2)
         if (level == 1) {
             numbersCount = Random.nextInt(4, 10 + 1)
             maxNumber = 10
@@ -69,7 +69,6 @@ class MathActivity : AppCompatActivity() {
     private fun buttonsBind() {
         val writtenAns = binding.wtireAns
         val ansRes = binding.ansRes
-        ansRes.text = correctAns.toString()
         var tries = 0
         writtenAns.setOnEditorActionListener { _, actionId, _ ->
             var curAns = writtenAns.text.toString().replace(',', '.').toDouble()

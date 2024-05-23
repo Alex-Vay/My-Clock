@@ -10,7 +10,7 @@
     <string name="scores">"Очки: "</string>
     <string name="end_game">Конец игры</string>
     <string name="game_over">Игра окончена :)</string>
-    <string name="next_time">Вы можете выключить свои часы</string>
+    <string name="next_time">Вы можете выключить свой будильник</string>
 
     <string name="app_launcher_name">Часы</string>
     <string name="time_zone">Часовой пояс</string>

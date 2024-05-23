@@ -45,7 +45,7 @@
         android:id="@+id/ansRes"
         android:layout_width="299dp"
         android:layout_height="79dp"
-        android:text="Здесь будет укано правильно ли вы ответили на вопрос"
+        android:text="Здесь будет укано правильно ли вы решили пример"
         android:textSize="22sp"
         android:textColor="@color/black"
         android:gravity="center"
