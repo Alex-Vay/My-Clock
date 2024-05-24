@@ -8,7 +8,8 @@
     android:background="?attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
-    android:paddingHorizontal="@dimen/activity_horizontal_margin"
+    android:foreground="@drawable/selector"
+    android:paddingHorizontal="@dimen/activity_margin"
     android:paddingVertical="@dimen/medium_margin">
 
     <TextView
@@ -23,7 +24,7 @@
         app:layout_constraintEnd_toStartOf="@id/alarm_switch"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/alarm_time"
         tools:text="Good morning!" />
 
     <TextView
@@ -55,18 +56,7 @@
         app:layout_constraintTop_toBottomOf="@id/alarm_time"
         tools:text="Mon, Tue, Wed, Thu, Fri" />
 
-    <TextView
-        android:id="@+id/alarm_mission"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alarm_days"
-        android:textSize="@dimen/bigger_text_size"
-        tools:text="mission" />
-
-    <com.google.android.material.switchmaterial.SwitchMaterial
+    <org.fossify.commons.views.MyMaterialSwitch
         android:id="@+id/alarm_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

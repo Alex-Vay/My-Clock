@@ -39,12 +39,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.nr.myclock.MainActivity
+import com.nr.myclock.clock.activities.MainActivity
 import com.nr.myclock.R
 import com.nr.myclock.games.game128.ui.Tile
 import com.nr.myclock.games.game128.ui.theme.Game2048Theme
 import com.nr.myclock.games.game128.ui.theme.GameColors
 import kotlin.math.abs
+import kotlin.random.Random
 
 class Game128Activity : ComponentActivity() {
     private val unrealTime = 240000L
@@ -52,7 +53,7 @@ class Game128Activity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val level = getSharedPreferences("clock_settings", MODE_PRIVATE).getInt("game128level", 1)
+        val level = Random.nextInt(1, 5)
         if (level == 1) {
             ROWCOUNT = 4
             GAMEENDPOINTS = 128

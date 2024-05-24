@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <org.fossify.commons.views.MyRecyclerView
         android:id="@+id/timers_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,11 +27,9 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/activity_margin"
         android:contentDescription="@string/new_timer"
-        android:src="@drawable/ic_alarm_vector"
-        app:backgroundTint="@color/color_primary"
+        android:src="@drawable/ic_plus_vector"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:rippleColor="@color/pressed_item_foreground" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

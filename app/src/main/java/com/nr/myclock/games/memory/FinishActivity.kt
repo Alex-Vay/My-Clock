@@ -6,11 +6,10 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import com.nr.myclock.MainActivity
+import com.nr.myclock.clock.activities.MainActivity
 import com.nr.myclock.databinding.MemoryFinishActivityBinding
 import kotlin.random.Random
 
-var temp = 0
 lateinit var allNums : List<Int>
 var numCountFin = -1
 

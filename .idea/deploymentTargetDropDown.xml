@@ -2,23 +2,36 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="Game128Activity (1)">
+        <State />
+      </entry>
       <entry key="MainActivity">
         <State />
       </entry>
-      <entry key="MemoryGame">
+      <entry key="MathActivity">
+        <State />
+      </entry>
+      <entry key="MemoryGameActivity">
         <State />
       </entry>
       <entry key="QuizActivity">
         <State />
       </entry>
-      <entry key="RiddlesActivity">
-        <State />
-      </entry>
-      <entry key="SchulteActivity">
-        <State />
-      </entry>
       <entry key="app">
-        <State />
+        <State>
+          <targetSelectedWithDropDown>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\Alex\.android\avd\Pixel_3a_API_34_extension_level_7_x86_64.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-05-24T19:12:48.401977700Z" />
+        </State>
       </entry>
     </value>
   </component>

@@ -2,16 +2,105 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+    <uses-permission
+        android:name="android.permission.SCHEDULE_EXACT_ALARM"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE"
+        tools:node="remove" />
+
+    <uses-permission
+        android:name="android.permission.USE_FINGERPRINT"
+        tools:node="remove" />
+
     <application
+        android:name="com.nr.myclock.clock.activities.App"
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
+        android:appCategory="productivity"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.Myclock"
-        tools:targetApi="31">
+        android:label="@string/app_launcher_name"
+        android:localeConfig="@xml/locale_config"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="com.nr.myclock.clock.activities.ClockplashActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:theme="@style/SplashTheme">
+
+            <intent-filter>
+                <action android:name="com.nr.myclock.TOGGLE_STOPWATCH" />
+                <action android:name="android.intent.action.SHOW_ALARMS" />
+                <action android:name="android.intent.action.SHOW_TIMERS" />
+                <action android:name="android.intent.action.SET_ALARM" />
+                <action android:name="android.intent.action.SET_TIMER" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DISMISS_ALARM" />
+                <action android:name="android.intent.action.DISMISS_TIMER" />
+
+                <data android:scheme="id" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.nr.myclock.clock.activities.ClockHandlerActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name="com.nr.myclock.clock.activities.MainActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name="com.nr.myclock.clock.activities.ClockReminderActivity"
+            android:configChanges="orientation|screenSize|screenLayout"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:showOnLockScreen="true"
+            android:taskAffinity="com.nr.myclock.ReminderActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SNOOZE_ALARM" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.nr.myclock.clock.activities.ClockSettingsActivity"
+            android:configChanges="orientation"
+            android:exported="true"
+            android:label="@string/settings"
+            android:parentActivityName="com.nr.myclock.clock.activities.MainActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.APPLICATION_PREFERENCES" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".games.quiz.QuizActivity"
             android:exported="true" />
@@ -33,16 +122,123 @@
         <activity
             android:name=".games.schulteTable.SchulteActivity"
             android:exported="true" />
+
+
         <activity
-            android:name=".MainActivity"
+            android:name="org.fossify.commons.activities.AboutActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/about"
+            android:parentActivityName="com.nr.myclock.clock.activities.MainActivity" />
+
+        <activity
+            android:name="org.fossify.commons.activities.CustomizationActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:label="@string/customize_colors"
+            android:parentActivityName="com.nr.myclock.clock.activities.ClockSettingsActivity" />
+
+        <activity
+            android:name="com.nr.myclock.clock.activities.ClockSnoozeReminderActivity"
+            android:configChanges="orientation"
+            android:exported="false"
+            android:theme="@style/Theme.Transparent" />
+
+
+
+        <service android:name="com.nr.myclock.clock.activities.SnoozeService" />
+
+        <service
+            android:name="com.nr.myclock.clock.activities.TimerService"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Used to notify the user that timers are running" />
+        </service>
+
+        <service
+            android:name="com.nr.myclock.clock.activities.StopwatchService"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Used to notify the user that stopwatch is running" />
+        </service>
+
+        <receiver android:name="com.nr.myclock.clock.activities.AlarmReceiver" />
+
+        <receiver android:name="com.nr.myclock.clock.activities.HideTimerReceiver" />
+
+        <receiver android:name="com.nr.myclock.clock.activities.HideAlarmReceiver" />
+
+        <receiver android:name="com.nr.myclock.clock.activities.DismissAlarmReceiver" />
+
+        <receiver android:name="com.nr.myclock.clock.activities.EarlyAlarmDismissalReceiver" />
+
+        <receiver
+            android:name="com.nr.myclock.clock.activities.BootCompletedReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.nr.myclock.clock.activities.helpers.DigitalTimeWidgetProvider"
             android:exported="true"
-            android:label="@string/app_name">
+            android:label="@string/digital_clock">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_digital_clock_info" />
+        </receiver>
+
+        <receiver
+            android:name="com.nr.myclock.clock.activities.helpers.AnalogueTimeWidgetProvider"
+            android:exported="true"
+            android:label="@string/analogue_clock">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_analogue_clock_info" />
+        </receiver>
+
+        <receiver
+            android:name="com.nr.myclock.clock.activities.UpdateWidgetReceiver"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.app.action.NEXT_ALARM_CLOCK_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+
+
+        <activity-alias
+            android:name="com.nr.myclock.clock.activities.ClockplashActivity.Green"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:roundIcon="@mipmap/ic_launcher"
+            android:targetActivity="com.nr.myclock.clock.activities.ClockplashActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity-alias>
     </application>
-
 </manifest>

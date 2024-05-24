@@ -1,20 +1,51 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.archivesName
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.konan.properties.Properties
+import java.io.FileInputStream
+
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.android)
+    alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.ksp)
+}
+
+val keystorePropertiesFile: File = rootProject.file("keystore.properties")
+val keystoreProperties = Properties()
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
 
 android {
     namespace = "com.nr.myclock"
-    compileSdk = 34
-
+    compileSdk = project.libs.versions.app.build.compileSDKVersion.get().toInt()
+    
     defaultConfig {
-        applicationId = "com.nr.myclock"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = libs.versions.app.version.appId.get()
+        minSdk = project.libs.versions.app.build.minimumSDK.get().toInt()
+        targetSdk = project.libs.versions.app.build.targetSDK.get().toInt()
+        versionName = project.libs.versions.app.version.versionName.get()
+        versionCode = project.libs.versions.app.version.versionCode.get().toInt()
+        archivesName.set("clock-$versionCode")
+        ksp {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
+    }
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    signingConfigs {
+        if (keystorePropertiesFile.exists()) {
+            register("release") {
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+                storeFile = file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+            }
+        }
+    }
+
+    buildFeatures {
+        viewBinding = true
+        compose = true
+        buildConfig = true
     }
 
     buildTypes {
@@ -26,21 +57,40 @@ android {
             )
         }
     }
+
+    flavorDimensions.add("variants")
+    productFlavors {
+        register("core")
+        register("foss")
+        register("prepaid")
+    }
+
+    sourceSets {
+        getByName("main").java.srcDirs("src/main/kotlin")
+    }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        val currentJavaVersionFromLibs = JavaVersion.valueOf(libs.versions.app.build.javaVersion.get())
+        sourceCompatibility = currentJavaVersionFromLibs
+        targetCompatibility = currentJavaVersionFromLibs
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
+
+    dependenciesInfo {
+        includeInApk = false
     }
-    buildFeatures {
-        viewBinding = true
-        compose = true
+
+    tasks.withType<KotlinCompile> {
+        kotlinOptions.jvmTarget = project.libs.versions.app.build.kotlinJVMTarget.get()
     }
+
+    lint {
+        checkReleaseBuilds = false
+        abortOnError = false
+    }
+
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.0"
-    }
-}
+        kotlinCompilerExtensionVersion = "1.5.8"
+    }}
 
 dependencies {
     implementation("androidx.core:core-ktx:1.10.1")
@@ -53,8 +103,6 @@ dependencies {
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material:material")
-
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -68,4 +116,16 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.fossify.commons)
+    implementation(libs.bundles.lifecycle)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.preference)
+    implementation(libs.androidx.work)
+    implementation(libs.kotlinx.coroutines)
+    implementation(libs.stetho)
+    implementation(libs.numberpicker)
+    implementation(libs.autofittextview)
+    implementation(libs.eventbus)
+    implementation(libs.bundles.room)
+    ksp(libs.androidx.room.compiler)
 }

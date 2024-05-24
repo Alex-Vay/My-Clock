@@ -43,12 +43,45 @@
             android:layout_marginBottom="@dimen/medium_margin"
             android:orientation="horizontal" />
 
+        <RelativeLayout
+            android:id="@+id/edit_alarm_vibrate_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_alarm_days_holder"
+            android:background="?attr/selectableItemBackground"
+            android:paddingStart="@dimen/activity_margin"
+            android:paddingTop="@dimen/medium_margin"
+            android:paddingEnd="@dimen/activity_margin"
+            android:paddingBottom="@dimen/medium_margin"
+            android:textSize="@dimen/bigger_text_size">
+
+            <ImageView
+                android:id="@+id/edit_alarm_vibrate_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/edit_alarm_vibrate"
+                android:layout_alignBottom="@+id/edit_alarm_vibrate"
+                android:src="@drawable/ic_vibrate_vector" />
+
+            <CheckBox
+                android:id="@+id/edit_alarm_vibrate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_toEndOf="@+id/edit_alarm_vibrate_icon"
+                android:background="@null"
+                android:clickable="false"
+                android:layoutDirection="rtl"
+                android:padding="@dimen/medium_margin"
+                android:text="@string/vibrate" />
+
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/edit_alarm_sound"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:layout_below="@+id/edit_alarm_days_holder"
+            android:layout_below="@+id/edit_alarm_vibrate_holder"
             android:background="?attr/selectableItemBackground"
             android:textColor="#000000"
             android:drawablePadding="@dimen/normal_margin"
@@ -56,29 +89,13 @@
             android:padding="@dimen/activity_margin"
             android:textSize="@dimen/bigger_text_size"
             tools:text="Default alarm"
-            app:drawableLeftCompat="@android:drawable/ic_popup_reminder" />
-
-
-        <TextView
-            android:id="@+id/edit_alarm_mission"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-
-
-            android:layout_below="@+id/edit_alarm_sound"
-            android:drawablePadding="@dimen/normal_margin"
-            android:gravity="center_vertical"
-            android:padding="@dimen/activity_margin"
-            android:textColor="#000000"
-            android:textSize="@dimen/bigger_text_size"
-            tools:text="Mission" />
+            app:drawableLeftCompat="@drawable/ic_bell_vector" />
 
         <LinearLayout
             android:id="@+id/edit_alarm_label_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edit_alarm_mission"
+            android:layout_below="@+id/edit_alarm_sound"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="@dimen/activity_margin"

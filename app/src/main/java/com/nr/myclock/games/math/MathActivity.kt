@@ -8,7 +8,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.notkamui.keval.keval
-import com.nr.myclock.MainActivity
+import com.nr.myclock.clock.activities.MainActivity
 import com.nr.myclock.databinding.MathActivityBinding
 import com.nr.myclock.games.riddle.DBHelper
 import kotlin.math.abs
@@ -30,7 +30,7 @@ class MathActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = MathActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val level = getSharedPreferences("clock_settings", MODE_PRIVATE).getInt("mathLevel", 2)
+        val level = Random.nextInt(1, 4)
         if (level == 1) {
             numbersCount = Random.nextInt(4, 10 + 1)
             maxNumber = 10

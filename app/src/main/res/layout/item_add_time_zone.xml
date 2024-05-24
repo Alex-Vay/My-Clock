@@ -20,7 +20,7 @@
         android:textSize="@dimen/bigger_text_size"
         tools:text="GMT-11:00 Midway" />
 
-    <androidx.appcompat.widget.AppCompatCheckBox
+    <org.fossify.commons.views.MyAppCompatCheckbox
         android:id="@+id/add_time_zone_checkbox"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

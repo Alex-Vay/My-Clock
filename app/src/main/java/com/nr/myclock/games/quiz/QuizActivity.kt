@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.nr.myclock.MainActivity
+import com.nr.myclock.clock.activities.MainActivity
 import com.nr.myclock.databinding.QuestsActivityBinding
 import com.nr.myclock.games.quiz.DBHelper
 import kotlin.random.Random

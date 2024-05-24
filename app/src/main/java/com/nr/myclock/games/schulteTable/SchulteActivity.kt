@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.nr.myclock.MainActivity
+import com.nr.myclock.clock.activities.MainActivity
 import com.nr.myclock.R
 import com.nr.myclock.databinding.Schulte16ActivityBinding
 import com.nr.myclock.databinding.Schulte25ActivityBinding
@@ -30,7 +30,7 @@ class SchulteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        level = getSharedPreferences("clock_settings", MODE_PRIVATE).getInt("schulteLevel", 3)
+        level = Random.nextInt(1, 4)
         if (level == 1) {
             nextNum = level1Start; end = level1End
             val binding = Schulte9ActivityBinding.inflate(layoutInflater)

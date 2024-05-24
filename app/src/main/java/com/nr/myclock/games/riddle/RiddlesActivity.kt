@@ -7,7 +7,7 @@ import android.os.Handler
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.nr.myclock.MainActivity
+import com.nr.myclock.clock.activities.MainActivity
 import com.nr.myclock.databinding.RiddlesActivityBinding
 import com.nr.myclock.games.riddle.DBHelper
 import kotlin.math.abs
