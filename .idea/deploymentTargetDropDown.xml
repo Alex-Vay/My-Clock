@@ -2,10 +2,7 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="Game128Activity (1)">
-        <State />
-      </entry>
-      <entry key="MainActivity">
+      <entry key="FinishActivity">
         <State />
       </entry>
       <entry key="MathActivity">
@@ -15,6 +12,9 @@
         <State />
       </entry>
       <entry key="QuizActivity">
+        <State />
+      </entry>
+      <entry key="RiddlesActivity">
         <State />
       </entry>
       <entry key="app">

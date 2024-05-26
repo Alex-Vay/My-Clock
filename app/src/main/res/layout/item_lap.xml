@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_horizontal"
+    android:backgroundTint="@color/white"
     android:paddingLeft="@dimen/activity_margin">
 
     <TextView
@@ -14,6 +15,8 @@
         android:layout_height="wrap_content"
         android:gravity="end"
         android:maxLines="1"
+        android:background="?attr/selectableItemBackground"
+        android:textColorHint="#000000"
         android:textSize="@dimen/bigger_text_size"
         app:layout_constraintEnd_toStartOf="@+id/lap_lap_time"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -27,6 +30,7 @@
         android:gravity="end"
         android:maxLines="1"
         android:textSize="@dimen/bigger_text_size"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/lap_total_time"
         app:layout_constraintStart_toEndOf="@+id/lap_order"
         app:layout_constraintTop_toTopOf="parent"
@@ -40,6 +44,7 @@
         android:gravity="end"
         android:maxLines="1"
         android:textSize="@dimen/bigger_text_size"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/lap_lap_time"
         app:layout_constraintTop_toTopOf="parent"

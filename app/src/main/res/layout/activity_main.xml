@@ -2,6 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_coordinator"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,7 +10,7 @@
         android:id="@+id/main_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/color_primary_dark"
+        android:backgroundTint="@color/pale_blue"
         app:menu="@menu/menu"
         app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
 

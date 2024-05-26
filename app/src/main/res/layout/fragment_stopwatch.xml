@@ -92,6 +92,7 @@
         android:layout_toStartOf="@+id/stopwatch_play_pause"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:padding="@dimen/normal_margin"
+
         android:src="@drawable/ic_reset_vector"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/stopwatch_play_pause"
