@@ -70,7 +70,6 @@
                     android:id="@+id/settings_language_label"
                     style="@style/SettingsTextLabelStyle"
                     android:layout_width="wrap_content"
-                    android:textColorHint="@color/black"
                     android:layout_height="wrap_content"
                     android:textColor="@color/hint_black"
                     android:text="@string/language" />
@@ -82,7 +81,7 @@
                     android:textColorHint="#000000"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/settings_language_label"
-                    android:textColor="@color/hint_black"
+                    android:textColor="@color/black"
                     tools:text="English" />
 
             </RelativeLayout>

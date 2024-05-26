@@ -2,7 +2,7 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="FinishActivity">
+      <entry key="ClockSettingsActivity">
         <State />
       </entry>
       <entry key="MemoryGameActivity">

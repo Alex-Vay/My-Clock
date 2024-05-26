@@ -1,5 +1,6 @@
 package com.nr.myclock.clock.activities.dialogs
 
+import android.graphics.Color
 import android.media.AudioManager
 import android.media.RingtoneManager
 import androidx.appcompat.app.AlertDialog
@@ -17,7 +18,7 @@ import org.fossify.commons.models.AlarmSound
 
 class EditClockTimerDialog(val activity: SimpleActivity, val timer: Timer, val callback: (id: Long) -> Unit) {
     private val binding = DialogEditTimerBinding.inflate(activity.layoutInflater)
-    private val textColor = activity.getProperTextColor()  //цвет текста редакт. таймера
+    private val textColor = Color.parseColor("#000000")  //цвет текста редакт. таймера
 
     init {
         restoreLastAlarm()

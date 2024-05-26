@@ -599,9 +599,9 @@ class ViewPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
 class SelectTimeZonesAdapter(val activity: SimpleActivity, val timeZones: ArrayList<CurrentTimeZone>) : RecyclerView.Adapter<SelectTimeZonesAdapter.ViewHolder>() {
     private val config = activity.config
-    private val textColor = activity.getProperTextColor()
-    private val backgroundColor = activity.getProperBackgroundColor()
-    private val primaryColor = activity.getProperPrimaryColor()
+    private val textColor = Color.parseColor("#000000")
+    private val backgroundColor = Color.parseColor("#FFFFFF")
+    private val primaryColor = Color.parseColor("#2196F3")
     var selectedKeys = HashSet<Int>()
 
     init {

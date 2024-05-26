@@ -1,6 +1,7 @@
 package com.nr.myclock.clock.activities
 
 
+import android.graphics.Color
 import android.os.Bundle
 import com.nr.myclock.databinding.ActivitySettingsBinding
 import com.nr.myclock.clock.activities.extensions.config
@@ -38,7 +39,7 @@ class ClockSettingsActivity : SimpleActivity() {
             binding.settingsAlarmTabLabel,
             binding.settingsTimerTabLabel,
         ).forEach {
-            it.setTextColor(getProperPrimaryColor())
+            it.setTextColor(Color.parseColor("#2196F3"))
         }
     }
 
