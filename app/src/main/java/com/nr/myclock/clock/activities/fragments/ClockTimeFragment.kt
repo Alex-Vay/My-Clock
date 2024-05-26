@@ -1,5 +1,6 @@
 package com.nr.myclock.clock.activities.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.text.format.DateFormat
@@ -43,7 +44,7 @@ class ClockTimeFragment : Fragment() {
         super.onResume()
         setupDateTime()
 
-        binding.clockDate.setTextColor(requireContext().getProperTextColor())
+        binding.clockDate.setTextColor(Color.parseColor("#000000"))
     }
 
     override fun onPause() {
@@ -63,7 +64,7 @@ class ClockTimeFragment : Fragment() {
     private fun setupViews() {
         binding.apply {
             requireContext().updateTextColors(clockFragment)
-            clockTime.setTextColor(requireContext().getProperTextColor())
+            clockTime.setTextColor(Color.parseColor("#000000"))
             clockFab.setOnClickListener {
                 fabClicked()
             }
@@ -133,7 +134,7 @@ class ClockTimeFragment : Fragment() {
             (currAdapter as TimeZonesAdapter).apply {
                 updatePrimaryColor()
                 updateBackgroundColor(requireContext().getProperBackgroundColor())
-                updateTextColor(requireContext().getProperTextColor())
+                updateTextColor(Color.parseColor("#000000"))
                 updateItems(timeZones)
             }
         }

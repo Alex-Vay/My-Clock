@@ -1,5 +1,6 @@
 package com.nr.myclock.clock.activities.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -71,7 +72,7 @@ class ClockTimerFragment : Fragment() {
         if (this::timerAdapter.isInitialized) {
             timerAdapter.updatePrimaryColor()
             timerAdapter.updateBackgroundColor(requireContext().getProperBackgroundColor())
-            timerAdapter.updateTextColor(requireContext().getProperTextColor())
+            timerAdapter.updateTextColor(Color.parseColor("#000000"))
         } else {
             timerAdapter = TimerAdapter(requireActivity() as SimpleActivity, binding.timersList, ::refreshTimers, ::openEditTimer)
             binding.timersList.adapter = timerAdapter

@@ -3,6 +3,7 @@ package com.nr.myclock.clock.activities.fragments
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.graphics.Color
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.nr.myclock.clock.activities.MainActivity
@@ -129,8 +130,8 @@ class ClockAlarmFragment : Fragment(), ToggleAlarmInterface {
         } else {
             (currAdapter as ClocksAdapter).apply {
                 updatePrimaryColor()
-                updateBackgroundColor(requireContext().getProperBackgroundColor())
-                updateTextColor(requireContext().getProperTextColor())
+                updateBackgroundColor(Color.parseColor("#000000"))
+                updateTextColor(Color.parseColor("#000000"))
                 updateItems(this@ClockAlarmFragment.alarms)
             }
         }

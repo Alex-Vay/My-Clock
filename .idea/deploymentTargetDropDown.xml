@@ -5,9 +5,6 @@
       <entry key="FinishActivity">
         <State />
       </entry>
-      <entry key="MathActivity">
-        <State />
-      </entry>
       <entry key="MemoryGameActivity">
         <State />
       </entry>
@@ -15,6 +12,9 @@
         <State />
       </entry>
       <entry key="RiddlesActivity">
+        <State />
+      </entry>
+      <entry key="SchulteActivity">
         <State />
       </entry>
       <entry key="app">

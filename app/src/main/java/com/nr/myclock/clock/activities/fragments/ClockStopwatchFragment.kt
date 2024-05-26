@@ -101,7 +101,7 @@ class ClockStopwatchFragment : Fragment() {
         binding.apply {
             requireContext().updateTextColors(stopwatchFragment)
             stopwatchPlayPause.background = resources.getColoredDrawableWithColor(R.drawable.circle_background_filled, properPrimaryColor)
-            stopwatchReset.applyColorFilter(requireContext().getProperTextColor())
+            stopwatchReset.applyColorFilter(Color.parseColor("#000000"))
         }
     }
 
@@ -192,7 +192,7 @@ class ClockStopwatchFragment : Fragment() {
         stopwatchAdapter.apply {
             updatePrimaryColor()
             updateBackgroundColor(requireContext().getProperBackgroundColor())
-            updateTextColor(requireContext().getProperTextColor())
+            updateTextColor(Color.parseColor("#000000"))
             updateItems(Stopwatch.laps)
         }
     }
