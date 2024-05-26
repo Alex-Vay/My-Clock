@@ -40,6 +40,7 @@
                 style="@style/SettingsSectionLabelStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/md_blue_500"
                 android:text="@string/general_settings" />
 
 
@@ -97,6 +98,7 @@
                 style="@style/SettingsSectionLabelStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/md_blue_500"
                 android:text="@string/alarm_tab" />
 
             <RelativeLayout
@@ -180,6 +182,7 @@
                 style="@style/SettingsSectionLabelStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/md_blue_500"
                 android:text="@string/timer_tab" />
 
             <RelativeLayout

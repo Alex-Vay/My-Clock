@@ -365,20 +365,20 @@ fun Context.rescheduleEnabledAlarms() {
 
 fun Context.isScreenOn() = (getSystemService(Context.POWER_SERVICE) as PowerManager).isScreenOn
 
-fun getGame(context: Context, gameNum: Int) : PendingIntent{
+fun getGame(context: Context, gameNum: Int) : Intent{
     return when(gameNum) {
-        1 -> PendingIntent.getActivity(context, OPEN_ALARMS_TAB_INTENT_ID, Intent(context, Game128Activity::class.java), PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
-        2 -> PendingIntent.getActivity(context, OPEN_ALARMS_TAB_INTENT_ID, Intent(context, MathActivity::class.java), PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
-        3 -> PendingIntent.getActivity(context, OPEN_ALARMS_TAB_INTENT_ID, Intent(context, MemoryGameActivity::class.java), PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
-        4 -> PendingIntent.getActivity(context, OPEN_ALARMS_TAB_INTENT_ID, Intent(context, QuizActivity::class.java), PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
-        5 -> PendingIntent.getActivity(context, OPEN_ALARMS_TAB_INTENT_ID, Intent(context, RiddlesActivity::class.java), PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
-        else -> PendingIntent.getActivity(context, OPEN_ALARMS_TAB_INTENT_ID, Intent(context, SchulteActivity::class.java), PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        1 -> Intent(context, Game128Activity::class.java)
+        2 -> Intent(context, MathActivity::class.java)
+        3 -> Intent(context, MemoryGameActivity::class.java)
+        4 -> Intent(context, QuizActivity::class.java)
+        5 -> Intent(context, RiddlesActivity::class.java)
+        else -> Intent(context, SchulteActivity::class.java)
     }
 }
 
 fun Context.showAlarmNotification(alarm: Alarm) {
     val gameNum = Random.nextInt(1, 7)
-    val pendingIntent = getGame(this, gameNum)
+    val pendingIntent = PendingIntent.getActivity(this, OPEN_ALARMS_TAB_INTENT_ID, getGame(this, gameNum), PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
     val notification = getAlarmNotification(pendingIntent, alarm)
     val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     try {
@@ -484,10 +484,7 @@ fun Context.getHideTimerPendingIntent(timerId: Int): PendingIntent {
 }
 
 fun Context.getHideAlarmPendingIntent(alarm: Alarm, channelId: String): PendingIntent {
-    val intent = Intent(this, HideAlarmReceiver::class.java).apply {
-        putExtra(ALARM_ID, alarm.id)
-        putExtra(ALARM_NOTIFICATION_CHANNEL_ID, channelId)
-    }
+    val intent = getGame(this, Random.nextInt(1, 7))
     return PendingIntent.getBroadcast(this, alarm.id, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
 }
 
