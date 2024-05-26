@@ -1,5 +1,6 @@
 package com.nr.myclock.clock.activities
 
+import android.graphics.Color
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.TypeAdapterFactory
@@ -145,17 +146,17 @@ class ClocksAdapter(
         ItemAlarmBinding.bind(view).apply {
             alarmHolder.isSelected = isSelected
             alarmTime.text = activity.getFormattedTime(alarm.timeInMinutes * 60, false, true)
-            alarmTime.setTextColor(textColor)
+            alarmTime.setTextColor(Color.parseColor("#000000"))
 
             alarmDays.text = activity.getAlarmSelectedDaysString(alarm.days)
-            alarmDays.setTextColor(textColor)
+            alarmDays.setTextColor(Color.parseColor("#000000"))
 
             alarmLabel.text = alarm.label
-            alarmLabel.setTextColor(textColor)
+            alarmLabel.setTextColor(Color.parseColor("#000000"))
             alarmLabel.beVisibleIf(alarm.label.isNotEmpty())
 
             alarmSwitch.isChecked = alarm.isEnabled
-            alarmSwitch.setColors(textColor, properPrimaryColor, backgroundColor)
+            alarmSwitch.setColors(Color.parseColor("#000000"), properPrimaryColor, backgroundColor)
             alarmSwitch.setOnClickListener {
                 if (alarm.days > 0) {
                     if (activity.config.wasAlarmWarningShown) {
@@ -525,10 +526,10 @@ class TimeZonesAdapter(activity: SimpleActivity, var timeZones: ArrayList<Curren
         ItemTimeZoneBinding.bind(view).apply {
             timeZoneFrame.isSelected = isSelected
             timeZoneTitle.text = timeZone.title
-            timeZoneTitle.setTextColor(textColor)
+            timeZoneTitle.setTextColor(Color.parseColor("#000000"))
 
             timeZoneTime.text = formattedTime
-            timeZoneTime.setTextColor(textColor)
+            timeZoneTime.setTextColor(Color.parseColor("#000000"))
 
             if (formattedDate != todayDateString) {
                 timeZoneDate.beVisible()
