@@ -10,7 +10,6 @@ import com.nr.myclock.clock.activities.MainActivity
 import com.nr.myclock.databinding.MemoryActivityBinding
 import kotlin.random.Random
 
-var temp = 0
 
 class MemoryGameActivity : AppCompatActivity() {
     private lateinit var binding : MemoryActivityBinding
@@ -30,7 +29,7 @@ class MemoryGameActivity : AppCompatActivity() {
             binding.numPlace7, binding.numPlace8, binding.numPlace9,
             binding.numPlace10, binding.numPlace11, binding.numPlace12,
             binding.numPlace13, binding.numPlace14, binding.numPlace15).shuffled()
-        val level = Random.nextInt(1, 2)
+        val level = Random.nextInt(1, 4)
         if (level == 1) {
             numCount = 5
             minNum = 1
@@ -51,20 +50,11 @@ class MemoryGameActivity : AppCompatActivity() {
         }
         showedNum = (minNum..maxNum).shuffled()
         placeNumOnScreen()
-        allNums = showedNum
-        numCountFin = numCount
-        if (temp < 3) {
-            temp += 1
-            Handler().postDelayed({
-                val finish = Intent(this, FinishActivity::class.java)
-                startActivity(finish)
-            }, sleepTime)
-        }
-        else
-            Handler().postDelayed({
-                val m = Intent(this, MainActivity::class.java)
-                startActivity(m)
-            }, sleepTime)
+        val z = showedNum.toIntArray()
+        Handler().postDelayed({
+            val finish = Intent(this, FinishActivity::class.java)
+            startActivity(finish.putExtra("numCount", numCount).putExtra("showedNum", showedNum.toIntArray()))
+        }, sleepTime)
     }
 
     private fun placeNumOnScreen() {

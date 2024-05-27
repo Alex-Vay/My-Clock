@@ -5,23 +5,28 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
+import android.os.Parcelable
 import androidx.appcompat.app.AppCompatActivity
 import com.nr.myclock.clock.activities.MainActivity
 import com.nr.myclock.databinding.MemoryFinishActivityBinding
 import kotlin.random.Random
 
-lateinit var allNums : List<Int>
-var numCountFin = -1
+private var temp = 0
 
 class FinishActivity : AppCompatActivity() {
     private lateinit var binding : MemoryFinishActivityBinding
     private var correctNum = -1
     private val sleepTime = 3000L
+    var numCountFin = -1
+    lateinit var allNums : List<Int>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = MemoryFinishActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        numCountFin = getIntent().getIntExtra("numCount", -1)
+        allNums = (getIntent().getSerializableExtra("showedNum") as IntArray).toList()
+        temp += 1
         buttonsBind()
     }
 
@@ -44,10 +49,17 @@ class FinishActivity : AppCompatActivity() {
                 }
                 else {
                     buttons[i].backgroundTintList = ColorStateList.valueOf(Color.parseColor("#E52B50"))
-                    Handler().postDelayed({
-                        val memory = Intent(this, MemoryGameActivity::class.java)
-                        startActivity(memory)
-                    }, sleepTime)
+                    if (temp < 3) {
+                        Handler().postDelayed({
+                            val memory = Intent(this, MemoryGameActivity::class.java)
+                            startActivity(memory)
+                        }, sleepTime)
+                    }
+                    else
+                        Handler().postDelayed({
+                            val m = Intent(this, MainActivity::class.java)
+                            startActivity(m)
+                        }, sleepTime)
                 }
             }
         }
