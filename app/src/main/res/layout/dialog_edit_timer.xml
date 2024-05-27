@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/edit_timer_vibrate"
                 android:layout_alignBottom="@+id/edit_timer_vibrate"
-                android:src="@drawable/ic_vibrate_vector" />
+                android:src="@drawable/ic_vibrate" />
 
             <CheckBox
                 android:id="@+id/edit_timer_vibrate"

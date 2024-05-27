@@ -33,7 +33,7 @@
             android:layout_alignParentBottom="true"
             app:tabIndicator="@null"
             app:tabMinWidth="150dp"
-            android:background="@color/pale_blue"
+            android:backgroundTint="@color/pale_blue"
             app:tabRippleColor="@null" />
 
     </RelativeLayout>

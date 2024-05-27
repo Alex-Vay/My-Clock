@@ -67,9 +67,6 @@ import com.nr.myclock.clock.activities.helpers.TAB_STOPWATCH
 import com.nr.myclock.clock.activities.helpers.TAB_TIMER
 import com.nr.myclock.databinding.ItemAddTimeZoneBinding
 import com.nr.myclock.clock.activities.extensions.gson.RuntimeTypeAdapterFactory
-import org.fossify.commons.extensions.getProperBackgroundColor
-import org.fossify.commons.extensions.getProperPrimaryColor
-import org.fossify.commons.extensions.getProperTextColor
 
 
 class ClocksAdapter(

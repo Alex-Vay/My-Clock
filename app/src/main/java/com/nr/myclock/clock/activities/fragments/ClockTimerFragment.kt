@@ -71,7 +71,7 @@ class ClockTimerFragment : Fragment() {
     private fun initOrUpdateAdapter() {
         if (this::timerAdapter.isInitialized) {
             timerAdapter.updatePrimaryColor()
-            timerAdapter.updateBackgroundColor(requireContext().getProperBackgroundColor())
+            timerAdapter.updateBackgroundColor(Color.parseColor("#FFFFFF"))
             timerAdapter.updateTextColor(Color.parseColor("#000000"))
         } else {
             timerAdapter = TimerAdapter(requireActivity() as SimpleActivity, binding.timersList, ::refreshTimers, ::openEditTimer)

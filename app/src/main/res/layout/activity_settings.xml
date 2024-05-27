@@ -5,14 +5,13 @@
     android:background="@color/white"
     android:id="@+id/settings_coordinator"
     android:layout_width="match_parent"
-    android:backgroundTint="@color/white"
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/settings_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/pale_blue"
+        android:backgroundTint="@color/pale_blue"
         app:title="@string/settings"
         app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
 

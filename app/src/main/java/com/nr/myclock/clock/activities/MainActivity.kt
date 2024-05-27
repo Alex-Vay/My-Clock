@@ -3,12 +3,13 @@ package com.nr.myclock.clock.activities
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ShortcutInfo
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
 import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
 import android.view.WindowManager
-import me.grantland.widget.AutofitHelper
 import com.nr.myclock.BuildConfig
 import com.nr.myclock.R
 import com.nr.myclock.clock.activities.helpers.INVALID_TIMER_ID
@@ -85,8 +86,6 @@ class MainActivity : SimpleActivity() {
         if (config.preventPhoneFromSleeping) {
             window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         }
-
-        setupTabColors()
         checkShortcuts()
     }
 
@@ -206,65 +205,36 @@ class MainActivity : SimpleActivity() {
 
     private fun setupTabs() {
         binding.mainTabsHolder.removeAllTabs()
-        val tabDrawables = arrayOf(
-            org.fossify.commons.R.drawable.ic_clock_vector,
-            R.drawable.ic_alarm_vector,
-            R.drawable.ic_stopwatch_vector,
-            R.drawable.ic_hourglass_vector
-        )
+        val tabDrawables =getTabDrawableIds()
         val tabLabels = arrayOf(R.string.clock, org.fossify.commons.R.string.alarm, R.string.stopwatch, R.string.timer)
 
         tabDrawables.forEachIndexed { i, drawableId ->
             binding.mainTabsHolder.newTab().setCustomView(org.fossify.commons.R.layout.bottom_tablayout_item).apply tab@{
                 customView?.let { BottomTablayoutItemBinding.bind(it) }?.apply {
-                    tabItemIcon.setImageDrawable(getDrawable(drawableId))
+                    val tab = getDrawable(drawableId)
+                    tab?.setColorFilter(Color.parseColor("#000000"), PorterDuff.Mode.SRC_IN)
+                    tabItemIcon.setImageDrawable(tab)
                     tabItemLabel.setText(tabLabels[i])
-                    AutofitHelper.create(tabItemLabel)
+                    tabItemLabel.setTextColor (Color.parseColor("#111111"))
                     binding.mainTabsHolder.addTab(this@tab)
                 }
             }
         }
 
         binding.mainTabsHolder.onTabSelectionChanged(
-            tabUnselectedAction = {
-                updateBottomTabItemColors(it.customView, false, getDeselectedTabDrawableIds()[it.position])
-            },
             tabSelectedAction = {
                 binding.viewPager.currentItem = it.position
-                updateBottomTabItemColors(it.customView, true, getSelectedTabDrawableIds()[it.position])
             }
         )
     }
 
-    private fun setupTabColors() {
-        val activeView = binding.mainTabsHolder.getTabAt(binding.viewPager.currentItem)?.customView
-        updateBottomTabItemColors(activeView, true, getSelectedTabDrawableIds()[binding.viewPager.currentItem])
-
-        getInactiveTabIndexes(binding.viewPager.currentItem).forEach { index ->
-            val inactiveView = binding.mainTabsHolder.getTabAt(index)?.customView
-            updateBottomTabItemColors(inactiveView, false, getDeselectedTabDrawableIds()[index])
-        }
-
-        binding.mainTabsHolder.getTabAt(binding.viewPager.currentItem)?.select()
-//        val bottomBarColor = getBottomNavigationBackgroundColor()
-//        binding.mainTabsHolder.setBackgroundColor(bottomBarColor)
-//        updateNavigationBarColor(bottomBarColor)
-    }
-
     private fun getInactiveTabIndexes(activeIndex: Int) = arrayListOf(0, 1, 2, 3).filter { it != activeIndex }
 
-    private fun getSelectedTabDrawableIds() = arrayOf(
+    private fun getTabDrawableIds() = arrayOf(
         org.fossify.commons.R.drawable.ic_clock_filled_vector,
         R.drawable.ic_alarm_filled_vector,
         R.drawable.ic_stopwatch_filled_vector,
         R.drawable.ic_hourglass_filled_vector
-    )
-
-    private fun getDeselectedTabDrawableIds() = arrayOf(
-        org.fossify.commons.R.drawable.ic_clock_vector,
-        R.drawable.ic_alarm_vector,
-        R.drawable.ic_stopwatch_vector,
-        R.drawable.ic_hourglass_vector
     )
 
     private fun launchSettings() {

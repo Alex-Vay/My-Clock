@@ -92,7 +92,7 @@
             android:padding="@dimen/activity_margin"
             android:textSize="@dimen/bigger_text_size"
             tools:text="Default alarm"
-            app:drawableLeftCompat="@drawable/ic_bell_vector" />
+            app:drawableLeftCompat="@drawable/ic_notifications_black_24dp" />
 
         <LinearLayout
             android:id="@+id/edit_alarm_label_holder"

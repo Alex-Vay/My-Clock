@@ -30,8 +30,6 @@ import com.nr.myclock.clock.activities.helpers.getCurrentDayMinutes
 import com.nr.myclock.clock.activities.helpers.getTomorrowBit
 import com.nr.myclock.clock.activities.models.Alarm
 import com.nr.myclock.clock.activities.models.EventAlarm
-import org.fossify.commons.extensions.getProperBackgroundColor
-import org.fossify.commons.extensions.getProperTextColor
 import org.fossify.commons.extensions.toast
 import org.fossify.commons.extensions.updateTextColors
 import org.fossify.commons.helpers.SORT_BY_DATE_CREATED

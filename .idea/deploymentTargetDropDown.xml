@@ -2,26 +2,17 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="ClockSettingsActivity">
-        <State />
-      </entry>
       <entry key="MemoryGameActivity">
         <State />
       </entry>
       <entry key="QuizActivity">
         <State />
       </entry>
-      <entry key="RiddlesActivity">
-        <State />
-      </entry>
-      <entry key="SchulteActivity">
-        <State />
-      </entry>
       <entry key="app">
         <State>
-          <targetSelectedWithDropDown>
+          <runningDeviceTargetSelectedWithDropDown>
             <Target>
-              <type value="QUICK_BOOT_TARGET" />
+              <type value="RUNNING_DEVICE_TARGET" />
               <deviceKey>
                 <Key>
                   <type value="VIRTUAL_DEVICE_PATH" />
@@ -29,8 +20,8 @@
                 </Key>
               </deviceKey>
             </Target>
-          </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-05-24T19:12:48.401977700Z" />
+          </runningDeviceTargetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-05-27T17:15:38.276808100Z" />
         </State>
       </entry>
     </value>

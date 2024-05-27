@@ -4,6 +4,6 @@
     <item
         android:width="@dimen/textview_drawable_size"
         android:height="@dimen/textview_drawable_size"
-        android:drawable="@drawable/ic_clock_vector" />
+        android:drawable="@drawable/ic_launcher_monochrome"/>
 
 </layer-list>

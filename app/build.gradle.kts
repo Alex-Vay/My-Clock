@@ -17,28 +17,17 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace = "com.nr.myclock"
-    compileSdk = project.libs.versions.app.build.compileSDKVersion.get().toInt()
+    compileSdk = 34
     
     defaultConfig {
         applicationId = libs.versions.app.version.appId.get()
-        minSdk = project.libs.versions.app.build.minimumSDK.get().toInt()
-        targetSdk = project.libs.versions.app.build.targetSDK.get().toInt()
-        versionName = project.libs.versions.app.version.versionName.get()
-        versionCode = project.libs.versions.app.version.versionCode.get().toInt()
+        minSdk = 31
+        targetSdk = 34
+        versionName = "1.0"
+        versionCode = 1
         archivesName.set("clock-$versionCode")
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")
-        }
-    }
-
-    signingConfigs {
-        if (keystorePropertiesFile.exists()) {
-            register("release") {
-                keyAlias = keystoreProperties.getProperty("keyAlias")
-                keyPassword = keystoreProperties.getProperty("keyPassword")
-                storeFile = file(keystoreProperties.getProperty("storeFile"))
-                storePassword = keystoreProperties.getProperty("storePassword")
-            }
         }
     }
 
@@ -59,20 +48,14 @@ android {
     }
 
     flavorDimensions.add("variants")
-    productFlavors {
-        register("core")
-        register("foss")
-        register("prepaid")
-    }
 
     sourceSets {
         getByName("main").java.srcDirs("src/main/kotlin")
     }
 
     compileOptions {
-        val currentJavaVersionFromLibs = JavaVersion.valueOf(libs.versions.app.build.javaVersion.get())
-        sourceCompatibility = currentJavaVersionFromLibs
-        targetCompatibility = currentJavaVersionFromLibs
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     dependenciesInfo {
@@ -80,7 +63,7 @@ android {
     }
 
     tasks.withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = project.libs.versions.app.build.kotlinJVMTarget.get()
+        kotlinOptions.jvmTarget = "17"
     }
 
     lint {
@@ -98,7 +81,6 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
     implementation("androidx.activity:activity-compose:1.7.2")
-//    implementation(composeBom)
     implementation("androidx.core:core-ktx")
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-tooling-preview")
